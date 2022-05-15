@@ -1,0 +1,2 @@
+Las versiones V1.0, V1.1 y V1.2 tan solo son playground de implementacion de
+codigo CSS.
