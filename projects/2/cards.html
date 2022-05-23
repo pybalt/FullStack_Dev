@@ -7,15 +7,8 @@
     <title>Testimonials grid</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="sass/custom.css"> <!-- linkeado de bootstrap -->
-    <style>
-        @media (min-width: 960px) { /* Esto significa que a partir de 992px*/
-            .vertical-100{ /* Crea una clase llamada VERTICAL-100 */
-                height: 100vh; /* Que va a tener como caracteristica que el alto ocupe el 100% del vertical del dispositivo.*/
-            }
-        }
-    </style> <!-- CSS temporal, reemplazar despues. -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sass/purged.css"> <!-- linkeado de bootstrap -->
 </head>
 <!--
     Vamos a crear una pagina que tiene un punto de quiebre a los 992 pixeles
@@ -28,37 +21,37 @@
         <div class="col-12 col-xl-9 "> <!-- Mitad izquierda -->
             <div class="row">
                 <div class="col-12 col-xl-8 p-3">
-                    <article class="card h-100 bg-success ">
+                    <article class="card h-100 bg-success fondo-card shadow-lg">
                         <div class="card-body"> <!-- Cuerpo de la tarjeta -->
                             <div class="d-flex">
                                 <img src="importfiles/images/image-daniel.jpg" alt="profile image" class="border border-4 white rounded-circle"/>
                                 <div>
                                     <h6 class="m-0 ps-3 mt-2 text-light">Daniel Clifford</h6>
-                                    <p class="text-secondary m-0 ps-3">Verified Graduate</p>
+                                    <p class="text-light text-opacity-50 m-0 ps-3">Verified Graduate</p>
                                 </div>
                             </div>
-                            <p class="h4 mt-3 mb-3">I received a job offer mid-course, and the subjects I learned were current, if not more so, in the company I joined. I honestly feel I got every penny's worth.</p>
-                            <p class="fs-6">"I was an EMT for many years before I joined the bootcamp. I've been looking to make a transition and have heard some people who had an amazing experience here. I signed up for the free intro course and found it incredibly fun! I enrolled shortly thereafter. The next 12 weeks was the best - and most grueling - time of my life. Since completing the course, I've succesfully switched careers, working as a Software Engineer at a VR startup."</p>    
+                            <p class="text-light h4 mt-3 mb-3 quote">I received a job offer mid-course, and the subjects I learned were current, if not more so, in the company I joined. I honestly feel I got every penny's worth.</p>
+                            <p class="text-light text-opacity-70 fs-6 txt">"I was an EMT for many years before I joined the bootcamp. I've been looking to make a transition and have heard some people who had an amazing experience here. I signed up for the free intro course and found it incredibly fun! I enrolled shortly thereafter. The next 12 weeks was the best - and most grueling - time of my life. Since completing the course, I've succesfully switched careers, working as a Software Engineer at a VR startup."</p>    
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-xl-4 p-3">
-                    <article class="card h-100 bg-info">
+                    <article class="card h-100 bg-danger shadow-lg">
                         <div class="card-body"> <!-- Cuerpo de la tarjeta -->
                             <div class="d-flex">
                                 <img src="importfiles/images/image-jonathan.jpg" alt="profile image" class="border border-4 white rounded-circle"/>
                                 <div>
                                     <h6 class="m-0 ps-3 mt-2 text-light">Jonathan Walters</h6>
-                                    <p class="text-secondary m-0 ps-3">Verified Graduate</p>
+                                    <p class="text-light text-opacity-50 m-0 ps-3 text-light">Verified Graduate</p>
                                 </div>
                             </div>
-                            <p class="h4 mt-3 mb-3">The team was very supportive and kept me motivated</p>
-                            <p class="fs-6">"I started as a total newbie with virtually no coding skills. I now work as a mobile engineer for a big company. This was one of the best investment I've made in myself."</p>
+                            <p class="text-light h4 mt-3 mb-3 quote">The team was very supportive and kept me motivated</p>
+                            <p class="text-light text-opacity-70 fs-6 txt">"I started as a total newbie with virtually no coding skills. I now work as a mobile engineer for a big company. This was one of the best investment I've made in myself."</p>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-xl-4 p-3">
-                    <article class="card h-100 bg-light">
+                    <article class="card h-100 bg-light shadow-lg">
                         <div class="card-body"> <!-- Cuerpo de la tarjeta -->
                             <div class="d-flex">
                                 <img src="/projects/2/importfiles/images/image-jeanette.jpg" alt="profile image" class="border border-4 white rounded-circle"/>
@@ -67,13 +60,13 @@
                                     <p class="text-secondary m-0 ps-3">Verified Graduate</p>
                                 </div>
                             </div>
-                            <p class="h4 mt-3 mb-3">An overall wonderful and rewarding experience</p>
-                            <p class="fs-6">"Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living while doing something I love."</p>
+                            <p class="text-dark h4 mt-3 mb-3 quote">An overall wonderful and rewarding experience</p>
+                            <p class="text-dark text-opacity-70 fs-6 txt">"Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living while doing something I love."</p>
                         </div>
                     </article>
                 </div>
                 <div class="col-12 col-xl-8 p-3">
-                    <article class="card h-100 bg-primary">
+                    <article class="card h-100 bg-primary shadow-lg">
                         <div class="card-body"> <!-- Cuerpo de la tarjeta -->
                             <div class="d-flex">
                                 <img src="/projects/2/importfiles/images/image-patrick.jpg" alt="profile image" class="border border-4 white rounded-circle"/>
@@ -82,15 +75,15 @@
                                     <p class="text-secondary m-0 ps-3">Verified Graduate</p>
                                 </div>
                             </div>
-                            <p class="h4 mt-3 mb-3">Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and learning from their experiences was easy.</p>
-                            <p class="fs-6">"The staff seem genuinely concerned about my progress which I find really refreshing. The program gave me the confidence necessary to be able to go out in the world and present myself as capaclbe junior developer. The standard is above the rest. You will get the personal attention you need from an incredible community of smart and amazing people. "</p>    
+                            <p class="text-light h4 mt-3 mb-3 quote">Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and learning from their experiences was easy.</p>
+                            <p class="text-light text-opacity-70 fs-6 txt">"The staff seem genuinely concerned about my progress which I find really refreshing. The program gave me the confidence necessary to be able to go out in the world and present myself as capaclbe junior developer. The standard is above the rest. You will get the personal attention you need from an incredible community of smart and amazing people. "</p>    
                         </div>
                     </article>
                 </div>
             </div>
         </div>
         <div class="col-12 col-xl-3 p-3"> <!-- Mitad derecha -->
-            <article class="card h-100 bg-danger">
+            <article class="card h-100 bg-light shadow-lg">
                         <div class="card-body"> <!-- Cuerpo de la tarjeta -->
                             <div class="d-flex">
                                 <img src="/projects/2/importfiles/images/image-kira.jpg" alt="profile image" class="border border-4 white rounded-circle"/>
@@ -99,8 +92,8 @@
                                     <p class="text-secondary m-0 ps-3">Verified Graduate</p>
                                 </div>
                             </div>
-                            <p class="h4 mt-3 mb-3">Such a life-changing experience. Highly recommended!</p>
-                            <p class="fs-6">"Before joining the bootcamp, I've never written a line of code. I needed some structure from professionals who can help me learn programming step by step. I was encouraged to enroll by a former student of theirs who can only say wonderful whings about the program. The entire curriculum and staff did not disappoint. They were very hands-on and i never had to wait long for assistance. The agile team project, in particular, was outstanding. It took my learning to the next level in a way that no tutorial could ever have. In fact, I've ofter referred to it during interviews as an example of my development experience. It certainly helped me land a job as a full-stack developer after receiving multiple offers. 100% recommend! "</p>    
+                            <p class="h4 mt-3 mb-3 quote">Such a life-changing experience. Highly recommended!</p>
+                            <p class="fs-6 text-opacity-70 txt">"Before joining the bootcamp, I've never written a line of code. I needed some structure from professionals who can help me learn programming step by step. I was encouraged to enroll by a former student of theirs who can only say wonderful whings about the program. The entire curriculum and staff did not disappoint. They were very hands-on and i never had to wait long for assistance. The agile team project, in particular, was outstanding. It took my learning to the next level in a way that no tutorial could ever have. In fact, I've ofter referred to it during interviews as an example of my development experience. It certainly helped me land a job as a full-stack developer after receiving multiple offers. 100% recommend! "</p>    
                         </div>
             </article>
         </div>
