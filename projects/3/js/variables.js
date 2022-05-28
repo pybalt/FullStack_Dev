@@ -1,0 +1,10 @@
+var display = document.getElementById('display');
+var operators = document.querySelectorAll('.operator');
+var buttons = document.querySelectorAll('button');
+var numbers = document.querySelectorAll('button:not(.operator, .operator-dot, .equal, .topbutton)');
+var operator;
+var content;
+var a;
+var b;
+var on;
+var equalPressed;

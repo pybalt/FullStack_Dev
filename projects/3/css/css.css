@@ -1,0 +1,66 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: grid;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    place-content: center;
+}
+
+.calculator{
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000000;
+}
+
+span{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    width: 400px;
+}
+#display{
+    font-size: 2rem;
+    text-align: center;
+    border: 0;
+    border-radius: 10px 10px 0px 0px;
+    width: 400px;
+    height: 200px;
+}
+section{
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+}
+.one{
+    border-radius: 0px 0px 10px 10px;
+    position: relative;
+    left: 10px;
+}
+button{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 1px white solid;
+    background-color: aliceblue;
+    cursor: pointer;
+    color: blue;
+    margin: 5px 0px 5px 0px;
+}
+.C{
+    color: red;
+}
+button:hover{
+    filter: brightness(95%);
+}
+
+.topbutton{
+    width: 90px;
+    height: 90px;
+    position: relative;
+    left: 5px;
+}
+.emphasis{
+    background-color: #d5eeff;
+    font-size: 100%;
+}
