@@ -1,10 +1,602 @@
-{
-    "subject":[
-        {
-            "id":"",
-            "name":"",
-            "credits":"",
-            "correlatives":"",
-        }
-    ]
-}
+[
+    {
+      "name": "Seminario de Ingenieria en Informatica I",
+      "id": 75.71,
+      "credits": 3,
+      "correlatives": [75.07]
+    },
+    {
+      "name": "Seminario de Ingenieria en Informatica II",
+      "id": 75.72,
+      "credits": 3,
+      "correlatives": [75.06, 75.44]
+    },
+    {
+      "name": "Idioma Portugues (*)",
+      "id": 78.05,
+      "credits": 4,
+      "correlatives": [0]
+    },
+    {
+      "name": "Idioma Italiano (*)",
+      "id": 78.04,
+      "credits": 4,
+      "correlatives": [0]
+    },
+    {
+      "name": "Idioma Frances (*)",
+      "id": 78.03,
+      "credits": 4,
+      "correlatives": [0]
+    },
+    {
+      "name": "Idioma Aleman (*)",
+      "id": 78.02,
+      "credits": 4,
+      "correlatives": [0]
+    },
+    {
+      "name": "Idioma Ingles (*)",
+      "id": 78.01,
+      "credits": 4,
+      "correlatives": [0]
+    },
+    {
+      "name": "Arquitectura de Software",
+      "id": 75.73,
+      "credits": 4,
+      "correlatives": [75.07 , 75.09]
+    },
+    {
+      "name": "Sistemas Multimediales",
+      "id": 75.64,
+      "credits": 4,
+      "correlatives": [66.74 , 75.74]
+    },
+    {
+      "name": "Taller de Desarrollo de Proyectos III",
+      "id": 75.55,
+      "credits": 4,
+      "correlatives": [75.46 , 75.47  , 75.48]
+    },
+    {
+      "name": "Tecnicas de Produccion de Software III",
+      "id": 75.54,
+      "credits": 4,
+      "correlatives": [75.48 , 75.53]
+    },
+    {
+      "name": "Tecnicas de Produccion de Software II",
+      "id": 75.53,
+      "credits": 4,
+      "correlatives": [75.51]
+    },
+    {
+      "name": "Tecnicas de Produccion de Software I",
+      "id": 75.51,
+      "credits": 4,
+      "correlatives": [75.15 , 75.52]
+    },
+    {
+      "name": "Calidad en Desarrollo de Sistemas",
+      "id": 75.48,
+      "credits": 4,
+      "correlatives": [75.45]
+    },
+    {
+      "name": "Teoria de Lenguaje",
+      "id": 75.31,
+      "credits": 4,
+      "correlatives": [75.41]
+    },
+    {
+      "name": "Recursos Humanos",
+      "id": 71.44,
+      "credits": 4,
+      "correlatives": "+144 credits"
+    },
+    {
+      "name": "Circuitos de Informacion en la Empresa",
+      "id": 71.42,
+      "credits": 4,
+      "correlatives": [71.46]
+    },
+    {
+      "name": "Estructura Economica Argentina",
+      "id": 71.18,
+      "credits": 4,
+      "correlatives": [0]
+    },
+    {
+      "name": "Simulacion de Sistemas de Control",
+      "id": 66.55,
+      "credits": 4,
+      "correlatives": [66.18]
+    },
+    {
+      "name": "Teoria de la Informacion y Codificacion",
+      "id": 66.24,
+      "credits": 4,
+      "correlatives": [66.74 , 66.75 , 66.70]
+    },
+    {
+      "name": "Fisica III D",
+      "id": 62.15,
+      "credits": 4,
+      "correlatives": [61.08 , 62.03]
+    },
+    {
+      "name": "Mecanica Racional",
+      "id": 62.11,
+      "credits": 4,
+      "correlatives": [61.10 , 62.01]
+    },
+    {
+      "name": "Sistemas Distribuidos II",
+      "id": 75.63,
+      "credits": 4,
+      "correlatives": [75.74]
+    },
+    {
+      "name": "Tecnicas de Programacion Concurrente II",
+      "id": 75.62,
+      "credits": 4,
+      "correlatives": [75.59]
+    },
+    {
+      "name": "Evaluacion de Proyectos y Manejo de Riesgos",
+      "id": 75.58,
+      "credits": 4,
+      "correlatives": [75.46 , 75.48]
+    },
+    {
+      "name": " Modelos de Proceso de Desarrollo",
+      "id": 75.57,
+      "credits": 4,
+      "correlatives": [75.46 , 75.48]
+    },
+    {
+      "name": "Sistemas de Programacion no convencional de Robots",
+      "id": 75.7,
+      "credits": 6,
+      "correlatives": [75.50]
+    },
+    {
+      "name": "Sistemas Automaticos de Diagnostico y Deteccion de Fallas II ",
+      "id": 75.69,
+      "credits": 6,
+      "correlatives": [75.67]
+    },
+    {
+      "name": "Introduccion a los Sistemas Inteligentes",
+      "id": 75.5,
+      "credits": 6,
+      "correlatives": [61.09 , 71.14]
+    },
+    {
+      "name": "Analisis Numerico II A",
+      "id": 75.38,
+      "credits": 6,
+      "correlatives": [75.52]
+    },
+    {
+      "name": "Teoria de Algoritmos II",
+      "id": 75.3,
+      "credits": 6,
+      "correlatives": [75.29]
+    },
+    {
+      "name": "Simulacion",
+      "id": 75.26,
+      "credits": 6,
+      "correlatives": [61.09]
+    },
+    {
+      "name": "Lenguajes de Programacion",
+      "id": 75.16,
+      "credits": 6,
+      "correlatives": [75.14]
+    },
+    {
+      "name": "Lenguajes Formales",
+      "id": 75.14,
+      "credits": 6,
+      "correlatives": [61.09]
+    },
+    {
+      "name": "Ingenieria Economica",
+      "id": 71.46,
+      "credits": 6,
+      "correlatives": "+144 credits"
+    },
+    {
+      "name": "Analisis y Resolucion de Problemas",
+      "id": 71.41,
+      "credits": 6,
+      "correlatives": [71.15]
+    },
+    {
+      "name": "Modelos y Optimizacion III",
+      "id": 71.2,
+      "credits": 6,
+      "correlatives": [71.15]
+    },
+    {
+      "name": "Modelos y Optimizacion II",
+      "id": 71.15,
+      "credits": 6,
+      "correlatives": [61.09 , 71.14]
+    },
+    {
+      "name": "Informacion en las Organizaciones",
+      "id": 71.13,
+      "credits": 6,
+      "correlatives": [71.12]
+    },
+    {
+      "name": "Estructura de las Organizaciones",
+      "id": 71.12,
+      "credits": 6,
+      "correlatives": "+60 credits"
+    },
+    {
+      "name": "Fundamentos Matematicos de la Vision en Robotica",
+      "id": 67.61,
+      "credits": 6,
+      "correlatives": [61.08 , 75.07]
+    },
+    {
+      "name": "Procesos Estocasticos",
+      "id": 66.75,
+      "credits": 6,
+      "correlatives": [61.03 , 61.09]
+    },
+    {
+      "name": "Señales y Sistemas",
+      "id": 66.74,
+      "credits": 6,
+      "correlatives": [61.09 , 66.06]
+    },
+    {
+      "name": "Criptografia y Seguridad Informatica",
+      "id": 66.69,
+      "credits": 6,
+      "correlatives": [75.43]
+    },
+    {
+      "name": "Redes Neuronales",
+      "id": 66.63,
+      "credits": 6,
+      "correlatives": [66.74 , 66.75]
+    },
+    {
+      "name": "Sistemas Biologicos",
+      "id": 66.49,
+      "credits": 6,
+      "correlatives": [66.74 , 63.01]
+    },
+    {
+      "name": "Procesamiento de Imagenes",
+      "id": 66.47,
+      "credits": 6,
+      "correlatives": [61.09 , 66.74]
+    },
+    {
+      "name": "Procesamiento del Habla",
+      "id": 66.46,
+      "credits": 6,
+      "correlatives": [66.74]
+    },
+    {
+      "name": "Tecnica Digital Avanzada",
+      "id": 66.35,
+      "credits": 6,
+      "correlatives": [61.07 , 66.17]
+    },
+    {
+      "name": "Robotica",
+      "id": 66.32,
+      "credits": 6,
+      "correlatives": [62.11 , 66.18]
+    },
+    {
+      "name": "Arquitecturas Paralelas",
+      "id": 66.26,
+      "credits": 6,
+      "correlatives": [66.20]
+    },
+    {
+      "name": "Organizacion de Computadoras",
+      "id": 66.2,
+      "credits": 6,
+      "correlatives": [66.70]
+    },
+    {
+      "name": "Circuitos de Pulsos",
+      "id": 66.19,
+      "credits": 6,
+      "correlatives": [66.08 , 66.70]
+    },
+    {
+      "name": "Teoria de Control I",
+      "id": 66.18,
+      "credits": 6,
+      "correlatives": [66.74]
+    },
+    {
+      "name": "Sistemas Digitales",
+      "id": 66.17,
+      "credits": 6,
+      "correlatives": [66.70]
+    },
+    {
+      "name": "Laboratorio de Microcomputadoras",
+      "id": 66.09,
+      "credits": 6,
+      "correlatives": [66.02 , 66.70]
+    },
+    {
+      "name": "Laboratorio",
+      "id": 66.02,
+      "credits": 6,
+      "correlatives": [62.03]
+    },
+    {
+      "name": "Estatica y Resistencia de Materiales B",
+      "id": 64.05,
+      "credits": 6,
+      "correlatives": [61.03 , 61.08]
+    },
+    {
+      "name": "Quimica",
+      "id": 63.01,
+      "credits": 6,
+      "correlatives": [0]
+    },
+    {
+      "name": "Analisis Funcional",
+      "id": 61.19,
+      "credits": 6,
+      "correlatives": [61.10]
+    },
+    {
+      "name": "Ecuaciones Diferenciales Ordinarias",
+      "id": 61.18,
+      "credits": 6,
+      "correlatives": [61.03 , 61.08]
+    },
+    {
+      "name": "Analisis matematico II A",
+      "id": 61.1,
+      "credits": 6,
+      "correlatives": [61.03 , 61.08]
+    },
+    {
+      "name": "Matematica Discreta",
+      "id": 61.07,
+      "credits": 6,
+      "correlatives": [0]
+    },
+    {
+      "name": "Organizacion de la Implantacion y el Mantenimiento",
+      "id": 75.56,
+      "credits": 6,
+      "correlatives": [75.46  , 75.48]
+    },
+    {
+      "name": "Teoria de Algoritmos I",
+      "id": 75.29,
+      "credits": 6,
+      "correlatives": [75.41]
+    },
+    {
+      "name": "Materiales Industriales I",
+      "id": 72.01,
+      "credits": 6,
+      "correlatives": [63.01 , 64.05]
+    },
+    {
+      "name": "Sistemas Graficos",
+      "id": 66.71,
+      "credits": 6,
+      "correlatives": [75.41 , 61.03 , 61.08]
+    },
+    {
+      "name": "Circuitos Electronicos I",
+      "id": 66.08,
+      "credits": 8,
+      "correlatives": [62.15 , 66.02 , 66.06]
+    },
+    {
+      "name": "Analisis de Circuitos",
+      "id": 66.06,
+      "credits": 10,
+      "correlatives": [61.10 , 62.03]
+    },
+    {
+      "name": "Taller de Programacion II",
+      "id": 75.52,
+      "credits": 4,
+      "correlatives": [75.07 , 75.42]
+    },
+    {
+      "name": "Taller de Programacion I",
+      "id": 75.42,
+      "credits": 4,
+      "correlatives": [66.70 , 75.41]
+    },
+    {
+      "name": "Legislacion y Ejercicio Profesional de la Ingenieria en Informatica",
+      "id": 71.4,
+      "credits": 4,
+      "correlatives": "+140 credits"
+    },
+    {
+      "name": "Introduccion al Pensamiento cientifico",
+      "id": 40,
+      "credits": 4,
+      "correlatives": [0]
+    },
+    {
+      "name": "Introduccion al conocimiento de la sociedad y el Estado",
+      "id": 24,
+      "credits": 4,
+      "correlatives": [0]
+    },
+    {
+      "name": "Trabajo Profesional",
+      "id": 75.99,
+      "credits": 6,
+      "correlatives": "+140 credits"
+    },
+    {
+      "name": "Taller de Desarrollo de proyectos II",
+      "id": 75.47,
+      "credits": 6,
+      "correlatives": [75.44 , 75.45]
+    },
+    {
+      "name": "Administracion y Control de Proyectos Informaticos II",
+      "id": 75.46,
+      "credits": 6,
+      "correlatives": [75.44]
+    },
+    {
+      "name": "Taller de Desarrollo de proyectos I",
+      "id": 75.45,
+      "credits": 6,
+      "correlatives": [75.10]
+    },
+    {
+      "name": "Administracion y Control de Proyectos Informaticos I",
+      "id": 75.44,
+      "credits": 6,
+      "correlatives": [75.10]
+    },
+    {
+      "name": "Introduccion a los Sistemas Distribuidos",
+      "id": 75.43,
+      "credits": 6,
+      "correlatives": [75.08]
+    },
+    {
+      "name": "Algoritmos y Programacion II",
+      "id": 75.41,
+      "credits": 6,
+      "correlatives": [75.40]
+    },
+    {
+      "name": "Algoritmos y Programacion I",
+      "id": 75.4,
+      "credits": 6,
+      "correlatives": [0]
+    },
+    {
+      "name": "Base de Datos ",
+      "id": 75.15,
+      "credits": 6,
+      "correlatives": [75.06 , 75.09]
+    },
+    {
+      "name": "Analisis Numerico I",
+      "id": 75.12,
+      "credits": 6,
+      "correlatives": [61.03 , 61.08 , 75.41]
+    },
+    {
+      "name": "Tecnicas de Diseño",
+      "id": 75.1,
+      "credits": 6,
+      "correlatives": [75.08 , 75.09]
+    },
+    {
+      "name": "Analisis de la Informacion",
+      "id": 75.09,
+      "credits": 6,
+      "correlatives": [75.07]
+    },
+    {
+      "name": "Sistemas Operativos",
+      "id": 75.08,
+      "credits": 6,
+      "correlatives": [66.70]
+    },
+    {
+      "name": "Algoritmos y Programacion III",
+      "id": 75.07,
+      "credits": 6,
+      "correlatives": [75.41]
+    },
+    {
+      "name": "Organizacion de Datos",
+      "id": 75.06,
+      "credits": 6,
+      "correlatives": [61.08 , 75.41]
+    },
+    {
+      "name": "Modelos y Optimizacion I",
+      "id": 71.14,
+      "credits": 6,
+      "correlatives": [62.03 , 61.08 , 75.41]
+    },
+    {
+      "name": "Estructura del Computador",
+      "id": 66.7,
+      "credits": 6,
+      "correlatives": [62.03 , 75.41]
+    },
+    {
+      "name": "Probabilidad y Estadistica B",
+      "id": 61.09,
+      "credits": 6,
+      "correlatives": [61.03 , 61.08]
+    },
+    {
+      "name": "Quimica",
+      "id": 5,
+      "credits": 6,
+      "correlatives": [0]
+    },
+    {
+      "name": "Fisica",
+      "id": 3,
+      "credits": 6,
+      "correlatives": [0]
+    },
+    {
+      "name": "Fisica II A",
+      "id": 62.03,
+      "credits": 8,
+      "correlatives": [61.03 , 62.01]
+    },
+    {
+      "name": "Algebra II A",
+      "id": 61.08,
+      "credits": 8,
+      "correlatives": [0]
+    },
+    {
+      "name": "Analisis matematico II A",
+      "id": 61.03,
+      "credits": 8,
+      "correlatives": [0]
+    },
+    {
+      "name": "Fisica I A ",
+      "id": 61.01,
+      "credits": 8,
+      "correlatives": [0]
+    },
+    {
+      "name": "Analisis Matematico A",
+      "id": 66,
+      "credits": 9,
+      "correlatives": [0]
+    },
+    {
+      "name": "Algebra A",
+      "id": 62,
+      "credits": 9,
+      "correlatives": [0]
+    }
+   ]
