@@ -9,3 +9,7 @@
     * We will use the if() statement to check if the subject is in the object.
     * If the subject is in the object, we will use the forEach() method to iterate through the correlatives.
     * We are going to create a new array that contains the correlatives of a subject. */
+// Import the local JSON file 'materias.json' as data
+var data = require('./materias.json');
+
+JSON=data;
