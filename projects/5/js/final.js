@@ -1,10 +1,10 @@
 // VARIABLES AND CONSTANTS. SYNTAX= [var, const, let] = NAME_EXAMPLE
-let DISPLAY_NAME = document.getElementById('name'),
+const DISPLAY_NAME = document.getElementById('name'),
 	DISPLAY_AMOUNT = document.getElementById('amount'),
-	TOTAL,
+	BTN = document.getElementById('save');
+let	TOTAL,
 	TOTAL_INDIVIDUAL;
-const BTN = document.getElementById('save');
-// Arrays. SYNTAX= [var, const, let] = aNAME_EXAMPLE
+// Arrays. SYNTAX= [var, const, let] = aNAME_EXAMPLE = [..., ..., ...]
 let aNAMES = [],
 	aAMOUNTS = [],
 	aIDS = [];
@@ -28,14 +28,14 @@ function SpliceArrays(ID) {
 	aAMOUNTS.splice(index, 1);
 	aIDS.splice(index, 1);
 }
-function calculateTotal() {
+function CalculateTotal() {
     TOTAL=0;
 	aAMOUNTS.forEach((element) => {
 		TOTAL += parseInt(element);
 	});
 	return TOTAL;
 }
-function calculateIndividual(TOTAL) {
+function CalculateIndividual(TOTAL) {
 	TOTAL_INDIVIDUAL = TOTAL / aAMOUNTS.length;
 	TOTAL_INDIVIDUAL = TOTAL_INDIVIDUAL.toFixed(1);
 	if (isNaN(TOTAL_INDIVIDUAL)) {
@@ -50,14 +50,17 @@ function changeContent() {
 		'.Cresult'
 	).innerHTML = `A cada uno le toca aportar: <span class="bg-warning fw-bold">$${TOTAL_INDIVIDUAL}</span>`;
 }
+function CalculateAndChange() {
+	TOTAL = CalculateTotal();
+	TOTAL_INDIVIDUAL = CalculateIndividual(TOTAL);
+	changeContent();
+}
 function Refresh() {
 	if (DISPLAY_NAME.value && DISPLAY_AMOUNT.value) {
 		let NAME = DISPLAY_NAME.value,
 			AMOUNT = DISPLAY_AMOUNT.value;
 		new Node(NAME, AMOUNT);
-		TOTAL = calculateTotal();
-		TOTAL_INDIVIDUAL = calculateIndividual(TOTAL);
-		changeContent();
+		CalculateAndChange();
 	}
 }
 function Node(NAME, AMOUNT) {
@@ -78,9 +81,7 @@ function Node(NAME, AMOUNT) {
 	this.card.addEventListener('click', function() {
 		SpliceArrays(this.ID);
 		this.remove();
-		TOTAL = calculateTotal();
-		TOTAL_INDIVIDUAL = calculateIndividual(TOTAL);
-		changeContent();
+		CalculateAndChange();
 	});
 	document.querySelector('.new-screens').appendChild(this.card);
 }

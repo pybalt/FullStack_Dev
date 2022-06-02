@@ -54,9 +54,15 @@ function DeletingNodes() {
 	return cleanArray(DELETE);
 }
 
-function Statictics(arr) {
-	console.log(`Median: ${median(arr)}`);
-	console.log(`Standard Deviation: ${standardDeviation(arr)}`);
-	console.log(`MIN ${Math.min.apply(Math, arr)}`);
-	console.log(`MAX ${Math.max.apply(Math, arr)}`);
+function Statictics() {
+	console.log(`Estadiasticas de creacion de nodos:`);
+	console.log(`Median: ${median(CREATE)}`);
+	console.log(`Standard Deviation: ${standardDeviation(CREATE)}`);
+	console.log(`MIN ${Math.min.apply(Math, CREATE)}`);
+	console.log(`MAX ${Math.max.apply(Math, CREATE)}`);
+	console.log(`\nEstadiasticas de eliminacion de nodos:`);
+	console.log(`Median: ${median(DELETE)}`);
+	console.log(`Standard Deviation: ${standardDeviation(DELETE)}`);
+	console.log(`MIN ${Math.min.apply(Math, DELETE)}`);
+	console.log(`MAX ${Math.max.apply(Math, DELETE)}`);
 }
