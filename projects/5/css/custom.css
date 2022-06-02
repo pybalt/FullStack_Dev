@@ -506,6 +506,7 @@ button:not(:disabled),
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: #dc3545;
   --bs-btn-disabled-border-color: #dc3545;
+  margin-bottom: 5px;
 }
 
 .card {
@@ -749,4 +750,7 @@ projects/5/js/alternative.js}
 .card:hover{
   background-color: rgba(255, 0, 0, 0.146);
   filter: brightness(120%);
+}
+.pb-5{
+  padding-bottom: 3rem !important;
 }
