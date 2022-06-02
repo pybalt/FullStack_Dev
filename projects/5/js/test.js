@@ -54,7 +54,7 @@ function DeletingNodes() {
 	return cleanArray(DELETE);
 }
 
-function Statictics() {
+function Statistics() {
 	console.log(`Estadiasticas de creacion de nodos:`);
 	console.log(`Median: ${median(CREATE)}`);
 	console.log(`Standard Deviation: ${standardDeviation(CREATE)}`);
