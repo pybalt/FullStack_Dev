@@ -1,6 +1,7 @@
 const DISPLAY_NAME = document.getElementById('name'),
 	DISPLAY_AMOUNT = document.getElementById('amount'),
-	BTN = document.getElementById('save');
+	BTN_ENVIAR = document.getElementById('save');
+	BTN_DOWNLOAD = document.getElementById('download');
 let	TOTAL,
 	TOTAL_INDIVIDUAL;
 // Arrays. SYNTAX= [var; const; let] = aNAME_EXAMPLE = [NAME1, NAME2, ...]
@@ -10,11 +11,22 @@ var aIDS = [];
 function CreateObject(NAME, AMOUNT) 
 {
     let ID = CreateID();
+	let DATE= new Date().toString();
     return {
         name: NAME,
         amount: AMOUNT,
-        id: ID
+        id: ID,
+		date: DATE,
+		hash: DATE.replace(/ /g, '')+ID+NAME+AMOUNT, // Investigar. ¿Como validaria la transacción en el backend?
     };
+}
+function Download() 
+{ 
+	var a = document.createElement('a');
+	var file = new Blob([JSON.stringify(aOBJECTS)], { type: 'text/plain' });
+	a.href = URL.createObjectURL(file);
+	a.download = 'sesión.json';
+	a.click();
 }
 function CreateID()
 {
@@ -94,19 +106,6 @@ function Node(NAME, AMOUNT)
 	document.querySelector('.new-screens').appendChild(this.card);
 }
 // Event Listeners. ELEMENT.addEventListener(EVENT, FUNCTION)
-BTN.addEventListener('click', Refresh);
-
-// Para descargar el JSON
-/* 
-function download() { var a = document.createElement('a');
-
-var file = new Blob([JSON.stringify(payments)], { type: 'text/plain' });
-
-a.href = URL.createObjectURL(file);
-
-a.download = 'sesión.json';
-
-a.click();
-
-}
-*/
+BTN_ENVIAR.addEventListener('click', Refresh);
+BTN_DOWNLOAD.addEventListener('click', Download);
+// Para descargar el archivo JSON
