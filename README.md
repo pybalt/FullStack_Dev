@@ -1,6 +1,6 @@
 # FullStack_Dev
 
-Repository of the Full-Stack Developer course, by ITBA.
+Repository of the Full-Stack Developer course, by ITBA. \n
 Repositorio del curso Full Stack Developer, impartido por el ITBA.
 
 This repository belongs to the FS Developer project.
