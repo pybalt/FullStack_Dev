@@ -2,6 +2,7 @@ const DISPLAY_NAME = document.getElementById('name'),
 	DISPLAY_AMOUNT = document.getElementById('amount'),
 	BTN_ENVIAR = document.getElementById('save');
 	BTN_DOWNLOAD = document.getElementById('download');
+	BTN_LOAD= document.getElementById('load');
 let	TOTAL,
 	TOTAL_INDIVIDUAL;
 // Arrays. SYNTAX= [var; const; let] = aNAME_EXAMPLE = [NAME1, NAME2, ...]
@@ -20,12 +21,22 @@ function CreateObject(NAME, AMOUNT)
 		hash: DATE.replace(/ /g, '')+ID+NAME+AMOUNT, // Investigar. ¿Como validaria la transacción en el backend?
     };
 }
+function Read()
+{
+	fetch('sesion.json') // Fetch local method. Fetchs the file from the repository...
+		.then(response => response.json())
+		.then(data => {
+			for (let i=0; i<data.length; i++){
+				new Node(data[i].name, data[i].amount, data[i].id, data[i].date, data[i].hash);
+			}
+		});
+}
 function Download() 
-{ 
+{
 	var a = document.createElement('a');
-	var file = new Blob([JSON.stringify(aOBJECTS)], { type: 'text/plain' });
+	var file = new Blob([JSON.stringify(aOBJECTS)], { type: 'application/json' });
 	a.href = URL.createObjectURL(file);
-	a.download = 'sesión.json';
+	a.download = 'sesion.json';
 	a.click();
 }
 function CreateID()
@@ -39,9 +50,9 @@ function CreateID()
     }
 }
 function SpliceArrays(ID) {
-	let index = aIDS.indexOf(ID);
-	aOBJECTS.splice(index, 1);
-	aIDS.splice(index, 1);
+	let INDEX = aIDS.indexOf(ID);
+	aOBJECTS.splice(INDEX, 1);
+	aIDS.splice(INDEX, 1);
 }
 function CalculateTotal() 
 {	
@@ -83,29 +94,35 @@ function Refresh()
 		CalculateAndChange();
 	}
 }
-function Node(NAME, AMOUNT) 
-{
-	this.NAME = NAME;
-	this.AMOUNT = Number(AMOUNT);
-    this.INSTANCE = CreateObject(NAME, this.AMOUNT);
-	aOBJECTS.push(this.INSTANCE);
-	this.card = document.createElement('div');
-	this.card.className = 'card';
-	this.card.innerHTML = `
+class Node {
+	constructor(NAME, AMOUNT) {
+		this.NAME = NAME;
+		this.AMOUNT = Number(AMOUNT);
+		this.INSTANCE = CreateObject(NAME, this.AMOUNT);
+		aOBJECTS.push(this.INSTANCE);
+		this.card = document.createElement('div');
+		this.card.className = 'card';
+		this.card.innerHTML = `
         <div class="card-body p-0 m-2" id="${this.INSTANCE.id}">
             <span class="name card-title h5">${this.INSTANCE.name} gastó</span>
             <span class="ignore card-text h5">$</span>
             <span class="amountS card-text h5">${this.INSTANCE.amount}</span>
         </div>
     `;
-	this.card.addEventListener('click', function() {
-        SpliceArrays(this.id);
-        this.remove();
-        CalculateAndChange();
-	});
-	document.querySelector('.new-screens').appendChild(this.card);
+		this.card.addEventListener('click', function () {
+			SpliceArrays(this.id);
+			this.remove();
+			CalculateAndChange();
+		});
+		document.querySelector('.new-screens').appendChild(this.card);
+	}
 }
 // Event Listeners. ELEMENT.addEventListener(EVENT, FUNCTION)
 BTN_ENVIAR.addEventListener('click', Refresh);
-BTN_DOWNLOAD.addEventListener('click', Download);
-// Para descargar el archivo JSON
+BTN_DOWNLOAD.addEventListener('click', Download);// Para descargar el archivo JSON
+BTN_LOAD.addEventListener('click', ()=>
+{
+	Read();
+	CalculateAndChange();
+}
+);// Para cargar el archivo JSON
