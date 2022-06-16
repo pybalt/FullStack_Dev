@@ -8,11 +8,13 @@ body{
     padding: 0;
     font-family: sans-serif;
     place-content: center;
+    transition: background-color 600ms ease;
 }
 
 .calculator{
     border-radius: 10px;
     box-shadow: 0px 0px 10px #000000;
+    transition: box-shadow 600ms ease;
 }
 
 span{
@@ -46,6 +48,7 @@ button{
     cursor: pointer;
     color: blue;
     margin: 5px 0px 5px 0px;
+    transition: background-color 600ms ease;
 }
 .C{
     color: red;

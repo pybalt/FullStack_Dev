@@ -3,25 +3,26 @@ const DISPLAY_NAME = document.getElementById('name'),
 	BTN_ENVIAR = document.getElementById('save');
 	BTN_DOWNLOAD = document.getElementById('download');
 	BTN_LOAD= document.getElementById('load');
-let	TOTAL,
-	TOTAL_INDIVIDUAL;
+var	total,
+	total_individual;
 // Arrays. SYNTAX= [var; const; let] = aNAME_EXAMPLE = [NAME1, NAME2, ...]
-var aOBJECTS = [];
-var aIDS = [];
+var aObjects = [];
+var aIds = [];
 // Functions. SYNTAX= [var, const, let] = NameExample
-function CreateObject(NAME, AMOUNT) 
+function createObject(name, amount) 
 {
-    let ID = CreateID();
-	let DATE= new Date().toString();
+    let id = createID();
+	let date= new Date().toString();
     return {
-        name: NAME,
-        amount: AMOUNT,
-        id: ID,
-		date: DATE,
-		hash: DATE.replace(/ /g, '')+ID+NAME+AMOUNT, // Investigar. ¿Como validaria la transacción en el backend?
+        name: name,
+        amount: amount,
+        id: id,
+		date: date,
+		hash: date.replace(/ /g, '')+id+name+amount, // Investigar. ¿Como validaria la transacción en el backend?
     };
 }
-function Read()
+
+function read()
 {
 	fetch('sesion.json') // Fetch local method. Fetchs the file from the repository...
 		.then(response => response.json())
@@ -31,98 +32,100 @@ function Read()
 			}
 		});
 }
-function Download() 
+
+function download() 
 {
 	var a = document.createElement('a');
-	var file = new Blob([JSON.stringify(aOBJECTS)], { type: 'application/json' });
+	var file = new Blob([JSON.stringify(aObjects)], { type: 'application/json' });
 	a.href = URL.createObjectURL(file);
 	a.download = 'sesion.json';
 	a.click();
 }
-function CreateID()
+function createID()
 {
-    let ID = Math.floor(Math.random() * 1000000);
-    if (aIDS.includes(ID)) {
-        CreateID();
+    let id = Math.floor(Math.random() * 1000000);
+    if (aIds.includes(id)) {
+        createID();
     } else {
-        aIDS.push(ID);
-        return ID;
+        aIds.push(id);
+        return id;
     }
 }
-function SpliceArrays(ID) {
-	let INDEX = aIDS.indexOf(ID);
-	aOBJECTS.splice(INDEX, 1);
-	aIDS.splice(INDEX, 1);
+
+function spliceArrays(id) {
+	let index = aIds.indexOf(id);
+	aObjects.splice(index, 1);
+	aIds.splice(index, 1);
 }
-function CalculateTotal() 
+function calculateTotal() 
 {	
-    TOTAL=0;
-	aOBJECTS.forEach((element) => {
-		TOTAL +=  element.amount;
+    total=0;
+	aObjects.forEach((element) => {
+		total +=  element.amount;
 	});
-	return TOTAL;
+	return total;
 }
-function CalculateIndividual(TOTAL) 
+function calculateIndividual(total) 
 {
-	TOTAL_INDIVIDUAL = TOTAL / aOBJECTS.length; 
-	TOTAL_INDIVIDUAL = TOTAL_INDIVIDUAL.toFixed(1); 
-	if (isNaN(TOTAL_INDIVIDUAL)) {
-		return (TOTAL_INDIVIDUAL = 0);
+	total_individual = total / aObjects.length; 
+	total_individual = total_individual.toFixed(1); 
+	if (isNaN(total_individual)) {
+		return (total_individual = 0);
 	} else {
-		return TOTAL_INDIVIDUAL;
+		return Number(total_individual);
 	}
 }
-function ChangeContent() 
+function changeContent() 
 {
-	document.querySelector('.total').innerHTML = `Total: <span class="bg-warning fw-bold">$${TOTAL}</span>`;
+	document.querySelector('.total').innerHTML = `Total: <span class="bg-warning fw-bold">$${total}</span>`;
 	document.querySelector(
 		'.Cresult'
-	).innerHTML = `A cada uno le toca aportar: <span class="bg-warning fw-bold">$${TOTAL_INDIVIDUAL}</span>`;
+	).innerHTML = `A cada uno le toca aportar: <span class="bg-warning fw-bold">$${total_individual}</span>`;
 }
-function CalculateAndChange() 
+function calculateAndChange() 
 {
-	TOTAL = CalculateTotal();
-	TOTAL_INDIVIDUAL = CalculateIndividual(TOTAL);
-	ChangeContent();
+	total = calculateTotal();
+	total_individual = calculateIndividual(total);
+	changeContent();
 }
-function Refresh() 
+function refresh() 
 {
 	if (DISPLAY_NAME.value && DISPLAY_AMOUNT.value) {
-		let NAME = DISPLAY_NAME.value,
-			AMOUNT = Number(DISPLAY_AMOUNT.value);
-		new Node(NAME, AMOUNT);
-		CalculateAndChange();
+		let name = DISPLAY_NAME.value,
+			amount = Number(DISPLAY_AMOUNT.value);
+		new Node(name, amount);
+		calculateAndChange();
 	}
 }
 class Node {
-	constructor(NAME, AMOUNT) {
-		this.NAME = NAME;
-		this.AMOUNT = Number(AMOUNT);
-		this.INSTANCE = CreateObject(NAME, this.AMOUNT);
-		aOBJECTS.push(this.INSTANCE);
+	constructor(name, amount) {
+		this.name = name;
+		this.amount = Number(amount);
+		this.instance = createObject(name, this.amount);
+		aObjects.push(this.instance);
 		this.card = document.createElement('div');
 		this.card.className = 'card';
 		this.card.innerHTML = `
-        <div class="card-body p-0 m-2" id="${this.INSTANCE.id}">
-            <span class="name card-title h5">${this.INSTANCE.name} gastó</span>
+        <div class="card-body p-0 m-2" id="${this.instance.id}">
+            <span class="name card-title h5">${this.instance.name} gastó</span>
             <span class="ignore card-text h5">$</span>
-            <span class="amountS card-text h5">${this.INSTANCE.amount}</span>
+            <span class="amountS card-text h5">${this.instance.amount}</span>
         </div>
     `;
 		this.card.addEventListener('click', function () {
-			SpliceArrays(this.id);
+			spliceArrays(this.id);
 			this.remove();
-			CalculateAndChange();
+			calculateAndChange();
 		});
 		document.querySelector('.new-screens').appendChild(this.card);
 	}
 }
 // Event Listeners. ELEMENT.addEventListener(EVENT, FUNCTION)
-BTN_ENVIAR.addEventListener('click', Refresh);
-BTN_DOWNLOAD.addEventListener('click', Download);// Para descargar el archivo JSON
+BTN_ENVIAR.addEventListener('click', refresh);
+BTN_DOWNLOAD.addEventListener('click', download);// Para descargar el archivo JSON
 BTN_LOAD.addEventListener('click', ()=>
 {
-	Read();
-	CalculateAndChange();
+	read();
+	calculateAndChange();
 }
 );// Para cargar el archivo JSON

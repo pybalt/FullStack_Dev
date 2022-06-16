@@ -125,3 +125,6 @@ document.querySelector('.topbutton:last-child').addEventListener('click', functi
 
   }
 });
+deleteButton.addEventListener('click', function(){
+  display.value = display.value.slice(0, -1);
+});
