@@ -34,7 +34,7 @@ section{
     display: grid;
     grid-template-columns: repeat(4, 100px);
 }
-.one{
+.section-low{
     border-radius: 0px 0px 10px 10px;
     position: relative;
     left: 10px;

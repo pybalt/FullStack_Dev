@@ -1,11 +1,10 @@
 var aOperatorHander= function(event) {
-    a = display.value;
+    a = DISPLAY.value;
     operator = event.currentTarget.innerText;
     cleanDisplay("");
   }
 
-var concatenateNumberHandler = function(event) {
-    debugger
+var concatenateNumberHandler = function(event) {    
     switch (equalPressed) {
       case undefined:
         equalPressed=false;
@@ -19,7 +18,7 @@ var concatenateNumberHandler = function(event) {
   }
 
 var concatenateDotHandler = function(event) {
-    if(display.value.indexOf('.') === -1){ // .indexOf() returns the position of the first occurrence of the specified value. If it returns -1, it means that the value is not found.
+    if(DISPLAY.value.indexOf('.') === -1){ // .indexOf() returns the position of the first occurrence of the specified value. If it returns -1, it means that the value is not found.
       concatenate(event.currentTarget.innerText);
     }
   }
@@ -29,8 +28,7 @@ var cleanHandler = function() {
   }
 
 var bCalculateHandler = function() {
-  debugger
-  b = display.value;
+  b = DISPLAY.value;
   equalPressed = true;
   
     switch(operator){
@@ -50,7 +48,8 @@ var bCalculateHandler = function() {
         total = parseFloat(a) / parseFloat(b);
         break;
     }
-    
-    display.value = total;
+    // we save the history of the operation in the array 'history'
+    aHistory.push(a + ' ' + operator + ' ' + b + ' = ' + total);
+    DISPLAY.value = total;
     a= 0;
   }
