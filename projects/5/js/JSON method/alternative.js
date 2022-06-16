@@ -21,6 +21,7 @@ function createObject(name, amount)
 		hash: date.replace(/ /g, '')+id+name+amount, // Investigar. ¿Como validaria la transacción en el backend?
     };
 }
+
 function read()
 {
 	fetch('sesion.json') // Fetch local method. Fetchs the file from the repository...
@@ -31,12 +32,13 @@ function read()
 			}
 		});
 }
+
 function download() 
 {
 	var a = document.createElement('a');
 	var file = new Blob([JSON.stringify(aObjects)], { type: 'application/json' });
 	a.href = URL.createObjectURL(file);
-	a.download = 'sesión.json';
+	a.download = 'sesion.json';
 	a.click();
 }
 function createID()
@@ -49,6 +51,7 @@ function createID()
         return id;
     }
 }
+
 function spliceArrays(id) {
 	let index = aIds.indexOf(id);
 	aObjects.splice(index, 1);

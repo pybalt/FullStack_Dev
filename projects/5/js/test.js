@@ -32,7 +32,7 @@ function TestNode(NUMBER_OF_TIMES) {
 
         DISPLAY_NAME.value = Math.random().toString(36).slice(2, 7);
         DISPLAY_AMOUNT.value = CreateNumber();
-		BTN.click();
+		BTN_ENVIAR.click();
 
 		var NodeTimeE = performance.now();
 		CREATE.push(NodeTimeE - NodeTimeS);
