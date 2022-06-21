@@ -13,12 +13,19 @@ function createObject(name, amount)
 {
     let id = createID();
 	let date= new Date().toString();
+	let hash
+
+	var myHeaders = new Headers();
+	myHeaders.append("Content-Type", "text/plain; charset=utf-8");
+	myHeaders.append("X-Hashify-Key", "random");
+	
+	var raw = date.replace(/ /g, '')+id+name+amount;
     return {
         name: name,
         amount: amount,
         id: id,
 		date: date,
-		hash: date.replace(/ /g, '')+id+name+amount, // Investigar. ¿Como validaria la transacción en el backend?
+		hash: hash, // Investigar. ¿Como validaria la transacción en el backend?
     };
 }
 
