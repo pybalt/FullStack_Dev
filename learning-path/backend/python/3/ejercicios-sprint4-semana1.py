@@ -32,15 +32,19 @@ def functionA():
     else:
         print("Debe de ingresar un numero entre 1 y 20")
         functionA()
-        
+
 # * Ingresando dos números enteros a y b por pantalla. 
 # * Agregue lógica para imprimir dos líneas. 
 # * La primera línea debe contener el resultado de la división de enteros, a // b . 
 # * La segunda línea debe contener el resultado de la división flotante, a / b .
 def functionB():
-    n = int(input("Ingrese un numero --> "))
-    n2 = int(input("Ingrese un segundo numero --> "))
-    return print(f"{n//n2}\n{n/n2}")
+    try:
+        n = int(input("Ingrese un numero --> "))
+        n2 = int(input("Ingrese un segundo numero --> "))
+        print(f"{n//n2}\n{n/n2}")
+    except ZeroDivisionError:
+        print("Division por 0. Intentelo nuevamente")
+        functionB()
 
 if __name__ == "__main__":
     functionB()
