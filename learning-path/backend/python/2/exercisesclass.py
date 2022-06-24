@@ -26,28 +26,34 @@ def evaluacion(n):
 
 #? Crear una calculadora.
 def calculator():
-    try:
-        num1= float(input("Seleccione un numero "))
-        num2= float(input("Seleccione un segundo numero "))
-        time.sleep(1)
-        operator = int(input("""Seleccione una opcion,
-                                1. Sumar
-                                2. Restar
-                                3. Multiplicar
-                                4. Dividir\n"""))
-        if (operator==1):
-                print(f"La operacion sumar entre {num1} y {num2} es ",num1+num2)
-        elif(operator == 2):
-                print(f"La operacion resta entre {num1} y {num2} es ",num1-num2)
-        elif(operator == 3):
-                print(f"La operacion multiplicacion entre {num1} y {num2} es ",num1*num2)
-        elif(operator == 4):
-                print(f"La operacion division entre {num1} y {num2} es ",num1/num2)
-    except ZeroDivisionError:
-        print("El resultado es indeterminado")
-    except ValueError:
-        print("Introduzca un numero.")
-        calculator()
+    contrinuarOp = 'y'
+    while contrinuarOp == 'y' or 'Y':
+        try:
+            num1= float(input("Seleccione un numero "))
+            num2= float(input("Seleccione un segundo numero "))
+            time.sleep(1)
+            operator = int(input("""Seleccione una opcion,
+                                    1. Sumar
+                                    2. Restar
+                                    3. Multiplicar
+                                    4. Dividir\n"""))
+            if (operator==1):
+                    print(f"La operacion sumar entre {num1} y {num2} es ",num1+num2)
+            elif(operator == 2):
+                    print(f"La operacion resta entre {num1} y {num2} es ",num1-num2)
+            elif(operator == 3):
+                    print(f"La operacion multiplicacion entre {num1} y {num2} es ",num1*num2)
+            elif(operator == 4):
+                    print(f"La operacion division entre {num1} y {num2} es ",num1/num2)
+        except ZeroDivisionError:
+            print("El resultado es indeterminado")
+        except ValueError:
+            print("Introduzca un numero.")
+        contrinuarOp = str(input("¿DESEA CONTINUAR CON LAS OPERACIONES? Y/N \n"))
+        if (contrinuarOp == 'n' or 'N'):
+            break
+        elif (contrinuarOp == 'y' or 'Y'):
+            continue
 if __name__ == "__main__":
     calculator()
 
