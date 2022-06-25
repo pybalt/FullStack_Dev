@@ -45,6 +45,17 @@ def functionB():
     except ZeroDivisionError:
         print("Division por 0. Intentelo nuevamente")
         functionB()
-
+# Se le pide que se asegure de que los nombres y apellidos de las personas comiencen con una letra mayúscula en sus pasaportes. 
+# Por ejemplo, juan perez debe escribirse con mayúscula correctamente como Juan Perez.
+def functionC():
+    nombre = str(input("Indique su nombre. --> "))
+    if not 1<=len(nombre)<1000:
+        print("El nombre debe tener entre 0 y 1000 caracteres.")
+        functionC()
+    verificacion = all(n.istitle() for n in nombre)
+    if verificacion:
+        print(nombre)
+    else:
+        print(nombre.title())
 if __name__ == "__main__":
-    functionB()
+    functionC()
