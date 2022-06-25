@@ -49,8 +49,8 @@ def functionB():
 # Por ejemplo, juan perez debe escribirse con mayúscula correctamente como Juan Perez.
 def functionC():
     nombre = str(input("Indique su nombre. --> "))
-    if not 1<=len(nombre)<1000:
-        print("El nombre debe tener entre 0 y 1000 caracteres.")
+    containsnumber = not nombre.isalpha()
+    if not 1<=len(nombre)<1000 or containsnumber:
         functionC()
     verificacion = all(n.istitle() for n in nombre)
     if verificacion:
