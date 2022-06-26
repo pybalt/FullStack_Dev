@@ -765,7 +765,7 @@ function busquedaBucles(array){
                     array.push("CBC")
                 }
             }
-        if (array[array.length -1] === 'CBC' || 0) {
+        if (array[array.length -1] === 'CBC') {
                 break
     }
 }}
