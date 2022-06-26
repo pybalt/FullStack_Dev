@@ -716,18 +716,6 @@ const MAT = [
 function buscarPorId(id){
     return MAT.find(materia => materia.id === id)
 }
-function buscarCorrelativas(id){
-    const NOMBRE_MATERIA = buscarPorId(id).name
-    aCorrelativas = buscarPorId(id).correlatives
-    aNames = []
-    aCorrelativas.forEach(element => {
-        var materia = buscarPorId(element)
-        aNames.push(materia.name)
-    });
-    const RESPUESTA = `La materia buscada se llama --> ${NOMBRE_MATERIA}
-    Sus correlativas son: --> ${aNames.join(' + ')}` // Provisional, para hacerlo funcionar en consola.
-    return RESPUESTA
-}
 function pathToMateria(id){
     // Esta funcion debe de mostrarme todas las materias que debo de cursar primero antes de poder anotarme a la buscada.
     // Para eso, traeremos el objeto perteneciente a la materia. Una vez traido el objeto, haremos dos bucles anidados.
@@ -742,7 +730,7 @@ function pathToMateria(id){
     console.log("Materia a Cursar -->\n   "+MATERIA_A_CURSAR.id)
     aCorrelativas = buscarPorId(id).correlatives
     // * Aca estaba el codigo que funcionaba a medias.
-    busquedaBucles(aCorrelativas)
+    bucarCorrelativas(aCorrelativas)
     aCorrelativas.reverse()
     console.log("Correlativas --> ")
     for (const i of aCorrelativas) {
@@ -754,8 +742,7 @@ function pathToMateria(id){
         }
     return "Funcion terminada"
 }
-function busquedaBucles(array){
-    debugger
+function bucarCorrelativas(array){
     for (const i of array) {
         let correlativa = buscarPorId(i)
             for (const it of correlativa.correlatives) {
@@ -768,30 +755,39 @@ function busquedaBucles(array){
         if (array[array.length -1] === 'CBC') {
                 break
     }
+    return array
 }}
-pathToMateria(75.44)
-
-/*
-//* Este codigo funciona a medias
-    aIds.forEach(
-    id => 
-        {
-            for (const i of buscarPorId(id).correlatives) {
-                if (aIds[aIds.length - 1] !== 0) {
-                    aIds.push(i)
-                }
-                else{
-                    break
-                }
-            }
-        console.log(aIds)
-        }
-                        );
-    for (const i of aIds) {
-        if (i === 0) {
-            console.log("CBC")
-        } else {
-            console.log(buscarPorId(i).name)
-        }
+/* *Ahora haremos lo inverso
+ * * A partir de aprobar una materia, veremos cuales tenemos la posibilidad de cursar. 
+ */
+function materiaAprobada(id){
+  // ! Las materias que contengan en su array [correlativas] a MATERIA_APROBADA.id, deben mostrarse.
+  const MATERIA_APROBADA = buscarPorId(id)
+  aId_Correlativas = [] // * El array que contiene el valor de la propiedad 'id'+'correlatives' de todas las materias.
+  for (const it of MAT) {
+    let aInfo = []
+    aInfo.push(it.id)
+    aInfo.push(it.correlatives)
+    aId_Correlativas.push(aInfo)
+  }
+  const IS_ARRAY = i => Object.prototype.toString.call(i) === '[object Array]' 
+  // * IS_ARRAY = Evalua si el objeto 'i' es un Array
+  const SOME = array => array.some(element => element === MATERIA_APROBADA.id) 
+  // * ^^^ SOME = Evalua si el objeto contiene un algun elemento igual a MATERIA_APROBADA.id
+  console.log("==============")
+  var match = []
+  for (const element of aId_Correlativas) {
+    i = element[1]
+    if (IS_ARRAY(i) && SOME(i)) {
+      match.push(element[0])
     }
-*/
+  }
+  console.log(`Si aprobaste ${buscarPorId(id).name}, podes cursar: `)
+  for (const iterator of match) {
+    var obligatoria = buscarPorId(iterator).obligatoria === true ? "OBLIGATORIA":"ELECTIVA"
+    console.log(`--> ${buscarPorId(iterator).name}, la cual es ${obligatoria}`)
+  }
+  const MAP = match.map(i => buscarPorId(i))
+  return MAP
+}
+console.log(materiaAprobada(62))
