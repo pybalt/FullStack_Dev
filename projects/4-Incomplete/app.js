@@ -519,14 +519,14 @@ const MAT = [
       "name": "Introduccion al Pensamiento cientifico",
       "id": 40,
       "credits": 4,
-      "correlatives": [0],
+      "correlatives": [],
       "obligatoria":true
     },
     {
       "name": "Introduccion al conocimiento de la sociedad y el Estado",
       "id": 24,
       "credits": 4,
-      "correlatives": [0],
+      "correlatives": [],
       "obligatoria":true
     },
     {
@@ -659,14 +659,14 @@ const MAT = [
       "name": "Quimica",
       "id": 5,
       "credits": 6,
-      "correlatives": [0],
+      "correlatives": [],
       "obligatoria":true
     },
     {
       "name": "Fisica",
       "id": 3,
       "credits": 6,
-      "correlatives": [0],
+      "correlatives": [],
       "obligatoria":true
     },
     {
@@ -701,14 +701,21 @@ const MAT = [
       "name": "Analisis Matematico A",
       "id": 66,
       "credits": 9,
-      "correlatives": [0],
+      "correlatives": [],
       "obligatoria":true
     },
     {
       "name": "Algebra A",
       "id": 62,
       "credits": 9,
-      "correlatives": [0],
+      "correlatives": [],
+      "obligatoria":true
+    },
+    {
+      "name": "CBC",
+      "id": 0,
+      "credits": 38,
+      "correlatives": [66, 62, 3, 5, 24, 40],
       "obligatoria":true
     }
    ]
@@ -790,4 +797,4 @@ function materiaAprobada(id){
   const MAP = match.map(i => buscarPorId(i))
   return MAP
 }
-console.log(materiaAprobada(62))
+console.log(materiaAprobada(0))
