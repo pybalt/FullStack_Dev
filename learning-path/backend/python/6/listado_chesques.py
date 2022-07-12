@@ -97,7 +97,7 @@ def filtrarPorEstado():
         case '3':
             return filtro(9, contenido, "'RECHAZADO'")
         case _:
-            return mostrarPorPantalla(contenido)
+            return contenido
 
 def pantallaOCSV(arr):
     opcion = input('¿Salida de datos en PANTALLA o CSV?\n1. PANTALLA\n2. CSV\n--> ')
@@ -105,22 +105,23 @@ def pantallaOCSV(arr):
         return mostrarPorPantalla(arr)
     if opcion == '2':
         return mostrarPorCSV(arr)
+
 def mostrarPorPantalla(filtrado):
     try:
-        for i in range(len(filtrado)):
+        for i in range(len(filtrado)): #Si este bucle recorre un arr vacio, dara un error.
             print('===============================================')
             for a in range(len(titulos)):
                 print(f'{titulos[a]}{filtrado[i][a]}')
             print('===============================================')
     except TypeError:
-        print("Vacio")        
+        print("Vacio")   
+     
 def mostrarPorCSV(arr):
     timestamp = datetime.timestamp(datetime.now()) #timestamp
     try:
-        if len(arr)>1: #Si el array tiene mas de un filtro, se van a poner todos los array.
+        if len(arr)>1: #Si el array filtrado tiene mas de una instancia, se mostraran todos.
             arrdni=[]
             for i in arr:
-                print(i)
                 arrdni.append(i[0])
                 arrdni.append('-')
             quitarRedundancias = []
@@ -131,21 +132,18 @@ def mostrarPorCSV(arr):
             dni = f'{arr[0][0]}-' #Como el len del array es uno, se agrega este, que esta en la posicion 0.
     except:
         print("No se pudo realizar la operacion.")
+
     name = f"{dni}-{timestamp}.csv"
-    with open(name, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile, delimiter=';')
-        for row in arr:
-            writer.writerow(row)
-        csvfile.close()
+    guardarYCerrarArchivo(name, arr)
 def filtro(position, array, value=''):
     value = str(value)
-    arr=[]
+    arrLocal=[]
     for i in array:
         if value== i[position]:
-            arr.append(i)
+            arrLocal.append(i)
         elif value == '':
-            arr.append(i[position])
-    return arr
+            arrLocal.append(i[position])
+    return arrLocal
 
 def abrirArchivo(name):
     if name == '':
@@ -157,11 +155,11 @@ def abrirArchivo(name):
         for row in agendareader:
             contenido.append(row)
 
-def guardarYCerrarArchivo(name=r'cheques'):
+def guardarYCerrarArchivo(name=r'cheques', arr=contenido):
     path = name + '.csv'
     with open(path, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=';')
-        for row in contenido:
+        for row in arr:
             writer.writerow(row)
         csvfile.close()
 
@@ -227,18 +225,18 @@ def agregarMovimiento():
     dato("DNI")
     dni = numeroEntero()
     arrDni = filtro(0, contenido, dni)
-    print(arrDni)
+    #Una vez indicado el DNI, el programa busca todas las
+    #Transacciones que se hayan hecho con ese DNI
     dato("NRO: Cuenta de origen")
     cuentaDeOrigen = numeroEntero("-Debe ser un numero entero", False)
     arrCuentas = filtro(4, arrDni, cuentaDeOrigen)
-    print(arrCuentas)
     chequesPorCuenta = filtro(1, arrCuentas)
     dato("Nro de cheque")
     while True:
+        """Este segmento garantiza que no se repita el nro cheque"""
         nroCheque= numeroEntero()
         nroCheque= str(nroCheque)
         if not (nroCheque in chequesPorCuenta):
-            print(nroCheque, chequesPorCuenta)
             break
         else:
             print("Ese Nro de Cheque ya ha sido usado.")
@@ -276,18 +274,18 @@ def agregarMovimiento():
     estadoopt = input(
         "Seleccione la opcion. Por defecto: PENDIENTE\n1.PENDIENTE\n2.APROBADO\n3.RECHAZADO\n--> ")
     if estadoopt == 3:
-        estado = 'RECHAZADO'
+        estado = "'RECHAZADO'"
     elif estadoopt == 2:
-        estado = 'APROBADO'
+        estado = "'APROBADO'"
     else:
-        estado = 'PENDIENTE'
+        estado = "'PENDIENTE'"
     dato("Tipo")
     tipoopt = input(
         "Seleccione la opcion. Por defecto: EMITIDO\n1.EMITIDO\n2.DEPOSITADO\n--> ")
     if tipoopt != 1:
-        tipo = 'DEPOSITADO'
+        tipo = "'DEPOSITADO'"
     else:
-        tipo = 'EMITIDO'
+        tipo = "'EMITIDO'"
     elemento = [dni, nroCheque, codigoBanco, codigoSucursal, cuentaDeOrigen, cuentaDestino, valor, fecha1, fecha2, estado, tipo]
     contenido.append(elemento)
 
