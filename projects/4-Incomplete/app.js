@@ -519,14 +519,14 @@ const MAT = [
       "name": "Introduccion al Pensamiento cientifico",
       "id": 40,
       "credits": 4,
-      "correlatives": [],
+      "correlatives": "ninguna",
       "obligatoria":true
     },
     {
       "name": "Introduccion al conocimiento de la sociedad y el Estado",
       "id": 24,
       "credits": 4,
-      "correlatives": [],
+      "correlatives": "ninguna",
       "obligatoria":true
     },
     {
@@ -659,14 +659,14 @@ const MAT = [
       "name": "Quimica",
       "id": 5,
       "credits": 6,
-      "correlatives": [],
+      "correlatives": "ninguna",
       "obligatoria":true
     },
     {
       "name": "Fisica",
       "id": 3,
       "credits": 6,
-      "correlatives": [],
+      "correlatives": "ninguna",
       "obligatoria":true
     },
     {
@@ -701,14 +701,14 @@ const MAT = [
       "name": "Analisis Matematico A",
       "id": 66,
       "credits": 9,
-      "correlatives": [],
+      "correlatives": "ninguna",
       "obligatoria":true
     },
     {
       "name": "Algebra A",
       "id": 62,
       "credits": 9,
-      "correlatives": [],
+      "correlatives": "ninguna",
       "obligatoria":true
     },
     {
@@ -770,9 +770,9 @@ function bucarCorrelativas(array){
 function materiaAprobada(id){
   // ! Las materias que contengan en su array [correlativas] a MATERIA_APROBADA.id, deben mostrarse.
   const MATERIA_APROBADA = buscarPorId(id)
-  aId_Correlativas = [] // * El array que contiene el valor de la propiedad 'id'+'correlatives' de todas las materias.
+  aId_Correlativas = "ninguna" // * El array que contiene el valor de la propiedad 'id'+'correlatives' de todas las materias.
   for (const it of MAT) {
-    let aInfo = []
+    let aInfo = "ninguna"
     aInfo.push(it.id)
     aInfo.push(it.correlatives)
     aId_Correlativas.push(aInfo)
@@ -782,7 +782,7 @@ function materiaAprobada(id){
   const SOME = array => array.some(element => element === MATERIA_APROBADA.id) 
   // * ^^^ SOME = Evalua si el objeto contiene un algun elemento igual a MATERIA_APROBADA.id
   console.log("==============")
-  var match = []
+  var match = "ninguna"
   for (const element of aId_Correlativas) {
     i = element[1]
     if (IS_ARRAY(i) && SOME(i)) {
